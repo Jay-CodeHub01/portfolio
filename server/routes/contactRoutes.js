@@ -1,16 +1,29 @@
 const express = require("express");
+const Contact = require("../models/Contact");
 
 const router = express.Router();
 
-router.post("/", (req, res) => {
-  const { name, email, subject, message } = req.body;
+router.post("/", async (req, res) => {
+  try {
+    const { name, email, subject,  message } = req.body;
 
-  console.log(name, email, subject, message);
+    const newMessage = await Contact.create({
+      name,
+      email,
+      subject,
+      message,
+    });
 
-  res.status(200).json({
-    success: true,
-    message: "Message received",
-  });
+    res.status(201).json({
+      success: true,
+      data: newMessage,
+    });
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: error.message,
+    });
+  }
 });
 
 module.exports = router;
