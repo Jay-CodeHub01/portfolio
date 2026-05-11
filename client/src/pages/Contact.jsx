@@ -545,15 +545,31 @@ const ContactForm = ({ isInView }) => {
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    // Simulate API call
-    await new Promise((resolve) => setTimeout(resolve, 2000));
-    setIsSubmitting(false);
-    setIsSubmitted(true);
-    setTimeout(() => setIsSubmitted(false), 4000);
-    setFormData({ name: "", email: "", subject: "", message: "" });
-  };
+  e.preventDefault();
+
+  // Destructure the values from your state object
+  const { name, email, subject, message } = formData;
+
+  const response = await fetch(
+    "http://localhost:5000/api/contact",
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        name,
+        email,
+        subject,
+        message
+      }),
+    }
+  );
+
+  const data = await response.json();
+
+  console.log(data);
+};
 
   const formFields = [
     {
