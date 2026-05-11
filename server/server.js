@@ -11,6 +11,7 @@ app.use(
     origin: [
       "http://localhost:5173",
       "https://jay-portfolio-abc.vercel.app/",
+      "https://jay-portfolio-abc.vercel.app/contact",
     ],
     credentials: true,
   })
