@@ -12,6 +12,7 @@ app.use(
       "http://localhost:5173",
       "https://jay-portfolio-abc.vercel.app",
     ],
+    methods: ["GET", "POST"],
     credentials: true,
   })
 );
