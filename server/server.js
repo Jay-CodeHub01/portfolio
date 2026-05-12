@@ -12,7 +12,8 @@ connectDB();
 app.use(
   cors({
     origin: "https://portfolio-frontend-ashen-one.vercel.app",
-    methods: ["GET", "POST"],
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
     credentials: true,
   })
 );
