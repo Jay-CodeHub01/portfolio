@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Routes } from "react-router";
 import { useState } from 'react';
 
 import Home from './pages/Home';
-import Contact from './pages/Contact'
+import Contact from './pages/Contact.jsx';
 
 
 
