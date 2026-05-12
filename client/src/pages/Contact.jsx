@@ -570,7 +570,7 @@ const ContactForm = ({ isInView }) => {
 
       const { name, email, subject, message } = formData;
 
-      const response = await fetch(`https://portfolio-server-six-mu.vercel.app/api/contact`, {
+      const response = await fetch("/api/contact", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -585,7 +585,7 @@ const ContactForm = ({ isInView }) => {
 
       const data = await response.json();
 
-      console.log(data);
+      // console.log(data);
 
       // SUCCESS ANIMATION
       setIsSubmitted(true);
