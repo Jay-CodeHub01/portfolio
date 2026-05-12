@@ -11,7 +11,7 @@ connectDB();
 
 app.use(
   cors({
-    origin: "https://portfolio-client-silk.vercel.app",
+    origin: "*",
     methods: ["GET", "POST"],
     credentials: true,
   })
